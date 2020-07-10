@@ -1,0 +1,33 @@
+﻿<Window x:Class="NodeWithImageDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NodeWithImageDemo"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d"
+        Icon="App.Ico"
+        Title="Level Based Styling">
+
+    <Window.Resources>
+        <local:FontAttributeConverter x:Key="FontAttributeConverter"/>
+    </Window.Resources>
+    <Window.DataContext>
+        <local:MailFolderViewModel x:Name="viewModel"/>
+    </Window.DataContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <syncfusion:SfTreeView HorizontalAlignment="Left" ItemTemplateDataContextType="Node"  ItemsSource="{Binding Folders}" Grid.Row="1" ChildPropertyName="SubFolder" Margin="10,10,0,0" VerticalAlignment="Top" ItemHeight="30" AutoExpandMode="AllNodes" Width="280" >
+            <syncfusion:SfTreeView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock  Text="{Binding Content.FolderName}" FontWeight="{Binding Level, Converter={StaticResource FontAttributeConverter}}"
+                    FontSize="13"/>
+                </DataTemplate>
+            </syncfusion:SfTreeView.ItemTemplate>
+        </syncfusion:SfTreeView>
+    </Grid>
+</Window>
