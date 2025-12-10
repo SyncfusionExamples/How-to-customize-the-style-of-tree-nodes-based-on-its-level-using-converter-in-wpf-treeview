@@ -1,4 +1,4 @@
-# How to customize the style of tree nodes based on its level using converter in WPF TreeView
+# How to Customize the Style of Tree Nodes Based on its Level Using Converter in WPF TreeView?
 
 This repository describes how to customize the style of tree nodes based on its level using converter in [WPF TreeView](https://www.syncfusion.com/wpf-controls/treeview) (SfTreeView).
 
@@ -42,3 +42,5 @@ public class FontAttributeConverter : IValueConverter
     }
 }
 ```
+
+![Customized the tree node style based on the levels](CustomizingNodesBasedOnLevels.png)
